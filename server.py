@@ -15,7 +15,7 @@ class ClientThread(Thread):
     def run(self):
         while True:
             data = conn.recv(2048)
-            print("Server received data:",base64.b64decode(data))
+            print("Server received data:",base64.b64decode(data).decode('utf8'))
             MESSAGE = input("Multithreaded Python server : Enter Response from Server/Enter exit:")
             msg  = base64.b64encode(bytes(MESSAGE, 'utf-8'))
             if msg == 'exit':

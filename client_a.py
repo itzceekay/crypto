@@ -13,7 +13,7 @@ tcpClientA.connect((host, port))
 
 while msg != 'exit':
     tcpClientA.send(msg)
-    data = base64.b64decode(tcpClientA.recv(BUFFER_SIZE))
+    data = base64.b64decode(tcpClientA.recv(BUFFER_SIZE)).decode('utf8')
     print(" Client2 received data:", data)
     MESSAGE = input("tcpClientA: Enter message to continue/ Enter exit:")
     msg = base64.b64encode(bytes(MESSAGE, 'utf-8'))
